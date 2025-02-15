@@ -3,10 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://github.com/ckj0404/blog.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d dist -r https://github.com/ckj0404/blog.git -b gh-pages"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "element-plus": "^2.9.4",

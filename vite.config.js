@@ -16,7 +16,14 @@ export default defineConfig({
     Markdown(),
     Pages({
       dirs: "src/views", 
-      extensions: ['vue', 'md'] // 让 pages 识别 Markdown
+      extensions: ['vue', 'md'], // 让 pages 识别 Markdown
+      onRoutesGenerated(routes) {
+        // 为所有路由添加 /blog 前缀
+        return routes.map((route) => {
+          route.path = `/blog${route.path}`;
+          return route;
+        });
+      },
     }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
