@@ -1,1 +1,0 @@
-import{d as o,c as s,a as n,o as r}from"./index-Cb8SrnyB.js";const a={class:"markdown-body"},m={},_="",i=o({__name:"index",setup(c,{expose:t}){return t({frontmatter:{},excerpt:void 0}),(d,e)=>(r(),s("div",a,e[0]||(e[0]=[n("h1",null,"css3",-1)])))}});export{i as default,_ as excerpt,m as frontmatter};
