@@ -8,14 +8,15 @@ import Pages from 'vite-plugin-pages'
 import path from 'path'
 
 export default defineConfig({
-  base: '/blog/',
+  base: '/',
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
     }),
     Markdown(),
     Pages({
-      extensions: ['vue', 'md'], // 让 pages 识别 Markdown
+      dirs: "src/views", 
+      extensions: ['vue', 'md'] // 让 pages 识别 Markdown
     }),
     AutoImport({
       resolvers: [ElementPlusResolver()],

@@ -2,8 +2,13 @@
   <Layout></Layout>
 </template>
 
-<script setup>
+<script>
 import Layout from '@/layout'
+export default {
+  components: {
+    Layout
+  }
+}
 </script>
 
 <style lang="less">
