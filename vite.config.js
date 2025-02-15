@@ -8,7 +8,7 @@ import Pages from 'vite-plugin-pages'
 import path from 'path'
 
 export default defineConfig({
-  base: '/blog/',
+  base: '/blog',
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
@@ -23,7 +23,7 @@ export default defineConfig({
           route.path = `/blog${route.path}`;
           return route;
         });
-      },
+      }
     }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
