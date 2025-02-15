@@ -8,7 +8,7 @@ import Pages from 'vite-plugin-pages'
 import path from 'path'
 
 export default defineConfig({
-  base: '/',
+  base: '/blog/',
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
