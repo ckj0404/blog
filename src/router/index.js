@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from 'virtual:generated-pages' // vite-plugin-pages 自动生成的路由
 
-console.log(routes);
+let route = routes.map(item => {
+  if(item.path === '/blog/') {
+    item.path = '/blog'
+  }
+  return item
+})
+console.log(route);
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    ...routes,
-    {
-      path: '/blog', //不带 / 的路径
-      redirect: '/blog/', // 重定向到 带 / 的路径
-    },
-  ],
+  routes: route,
 })
 // 全局导航守卫
 router.beforeEach((to, from, next) => {
