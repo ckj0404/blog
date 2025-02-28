@@ -1,7 +1,7 @@
 <template>
-  <div class="cls-main" v-highlight>
+  <el-scrollbar class="cls-main">
     <router-view></router-view>
-  </div>
+  </el-scrollbar>
 </template>
 
 <script setup>
@@ -15,5 +15,8 @@
   padding: 12px 16px;
   height: calc(100% - 160px);
   overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 </style>

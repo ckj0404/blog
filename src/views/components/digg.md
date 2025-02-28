@@ -1,7 +1,8 @@
 ## 点赞组件
 
+## digg-list
+
 ```vue
-<!-- digg-list -->
 <template>
   <view class="digg-list-cls">
     <view class="mask-digg" @click="clickEvent" :style="{
@@ -20,7 +21,9 @@
     </view>
   </view>
 </template>
+```
 
+```javascript
 <script>
 import { getSystemInfo } from '@/common/js/system'
 import DiggItem from './digg-item.vue'
@@ -130,7 +133,9 @@ export default {
   }
 }
 </script>
+```
 
+```css
 <style lang="scss" scoped>
 @for $i from 0 to 18 {
   @keyframes digg-inner-#{$i} {
@@ -242,14 +247,15 @@ export default {
 </style>
 ```
 
-
+## digg-item
 
 ```vue
-<!-- digg-item -->
 <template>
   <image v-show="modelValue" :src="formatImgUrl('/xyzx/static/live/digg-' + type % 6 + '.png')"></image>
 </template>
+```
 
+```javascript
 <script>
 export default {
   emits: ['closeItem'],
@@ -278,7 +284,9 @@ export default {
   }
 }
 </script>
+```
 
+```css
 <style lang="scss" scoped>
 image {
   width: 72rpx;
@@ -286,4 +294,3 @@ image {
 }
 </style>
 ```
-
