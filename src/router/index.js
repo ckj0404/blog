@@ -1,37 +1,43 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [{
+  name: '',
+  path: '/blog',
+  component: () => import('@/layout/index.vue'),
+  children: [{
     name: '首页',
-    path: '/',
+    path: '',
     component: () => import('@/views/index.vue')
   }, {
     name: 'h5',
-    path: '/h5',
+    path: 'h5',
     component: () => import('@/views/h5/index.md')
   }, {
     name: 'css',
-    path: '/css',
+    path: 'css',
     component: () => import('@/views/css3/index.md')
   }, {
     name: 'javascript',
-    path: '/javascript',
+    path: 'javascript',
     component: () => import('@/views/javascript/index.md')
   }, {
     name: 'vue',
-    path: '/vue',
+    path: 'vue',
     component: () => import('@/views/vue/index.vue')
   }, {
-    path: '/components',
-    redirect: '/components/digg',
+    name: 'components',
+    path: 'components',
+    redirect: 'blog/components/digg',
     children: [{ 
       name: '点赞',
       path: 'digg',
       component: () => import('@/views/components/digg.md')
     }]
   }]
+}]
 const router = createRouter({
   history: createWebHistory(),
-  base: '/blog/',
+  base: '/blog',
   routes,
 })
 

@@ -1,15 +1,7 @@
 <template>
-  <Layout></Layout>
+  <router-view></router-view>
 </template>
 
-<script>
-import Layout from '@/layout'
-export default {
-  components: {
-    Layout
-  }
-}
-</script>
 
 <style lang="less">
 
