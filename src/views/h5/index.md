@@ -6,4 +6,3 @@
 let arr = ['1111']
 console.log(arr)
 ```
-

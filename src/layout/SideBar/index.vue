@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import routes from 'virtual:generated-pages' // vite-plugin-pages 自动生成的路由
 export default {
   data() {
     return {
@@ -59,7 +58,6 @@ export default {
     }
   },
   mounted() {
-    console.log(routes);
   }
 }
 </script>
