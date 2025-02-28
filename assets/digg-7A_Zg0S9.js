@@ -1,4 +1,4 @@
-import{d as s,c as a,a as t,o}from"./index-BtlEAL1P.js";const r={class:"markdown-body"},c={},g="",d=s({__name:"digg",setup(l,{expose:i}){return i({frontmatter:{},excerpt:void 0}),(n,e)=>(o(),a("div",r,e[0]||(e[0]=[t("h2",null,"点赞组件",-1),t("pre",null,[t("code",{class:"language-vue"},`<!-- digg-list -->
+import{l as s,m as a,v as t,p as o}from"./index-5dR8sqC2.js";const r={class:"markdown-body"},g={},c="",d=s({__name:"digg",setup(l,{expose:i}){return i({frontmatter:{},excerpt:void 0}),(n,e)=>(o(),a("div",r,e[0]||(e[0]=[t("h2",null,"点赞组件",-1),t("pre",null,[t("code",{class:"language-vue"},`<!-- digg-list -->
 <template>
   <view class="digg-list-cls">
     <view class="mask-digg" @click="clickEvent" :style="{
@@ -277,4 +277,4 @@ image {
   height: 72rpx;
 }
 </style>
-`)],-1)])))}});export{d as default,g as excerpt,c as frontmatter};
+`)],-1)])))}});export{d as default,c as excerpt,g as frontmatter};

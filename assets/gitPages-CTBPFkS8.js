@@ -1,1 +1,0 @@
-import{d as o,c as s,o as n,a as r}from"./index-BtlEAL1P.js";const a={class:"markdown-body"},m={},_="",i=o({__name:"gitPages",setup(c,{expose:t}){return t({frontmatter:{},excerpt:void 0}),(p,e)=>(n(),s("div",a,e[0]||(e[0]=[r("p",null,"111",-1)])))}});export{i as default,_ as excerpt,m as frontmatter};
