@@ -1,5 +1,5 @@
 <template>
-  <div class="cls-main">
+  <div class="cls-main" v-highlight>
     <router-view></router-view>
   </div>
 </template>
@@ -11,7 +11,9 @@
 
 <style scoped lang="less">
 .cls-main {
-  flex: 1;
-  background-color: #ccc;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  height: calc(100% - 160px);
+  overflow-y: scroll;
 }
 </style>

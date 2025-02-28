@@ -12,5 +12,7 @@
 .cls-footer {
   background-color: #ab5;
   height: 80px;
+  box-sizing: border-box;
+  padding:  12px 16px;
 }
 </style>

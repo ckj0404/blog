@@ -1,17 +1,39 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import routes from 'virtual:generated-pages' // vite-plugin-pages 自动生成的路由
 
-let route = routes.map(item => {
-  if(item.path === '/blog/') {
-    item.path = '/blog'
-  }
-  return item
-})
-console.log(route);
+const routes = [{
+    name: '首页',
+    path: '/blog',
+    component: () => import('@/views/index.vue')
+  }, {
+    name: 'h5',
+    path: '/blog/h5',
+    component: () => import('@/views/h5/index.md')
+  }, {
+    name: 'css',
+    path: '/blog/css',
+    component: () => import('@/views/css3/index.md')
+  }, {
+    name: 'javascript',
+    path: '/blog/javascript',
+    component: () => import('@/views/javascript/index.md')
+  }, {
+    name: 'vue',
+    path: '/blog/vue',
+    component: () => import('@/views/vue/index.vue')
+  }, {
+    path: '/blog/components',
+    redirect: '/blog/components/digg',
+    children: [{ 
+      name: '点赞',
+      path: 'digg',
+      component: () => import('@/views/components/digg.md')
+    }]
+  }]
 const router = createRouter({
   history: createWebHistory(),
-  routes: route,
+  routes,
 })
+
 // 全局导航守卫
 router.beforeEach((to, from, next) => {
   const matchedRoutes = router.getRoutes(); // 获取所有已定义的路由
