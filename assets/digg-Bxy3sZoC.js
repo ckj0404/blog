@@ -1,4 +1,4 @@
-import{d as s,c as a,a as t,o}from"./index-BGGRymyh.js";const r={class:"markdown-body"},c={},g="",d=s({__name:"digg",setup(l,{expose:i}){return i({frontmatter:{},excerpt:void 0}),(n,e)=>(o(),a("div",r,e[0]||(e[0]=[t("h2",null,"点赞组件",-1),t("pre",null,[t("code",{class:"language-vue"},`<!-- digg-list -->
+import{d as s,c as a,a as t,o}from"./index-BtlEAL1P.js";const r={class:"markdown-body"},c={},g="",d=s({__name:"digg",setup(l,{expose:i}){return i({frontmatter:{},excerpt:void 0}),(n,e)=>(o(),a("div",r,e[0]||(e[0]=[t("h2",null,"点赞组件",-1),t("pre",null,[t("code",{class:"language-vue"},`<!-- digg-list -->
 <template>
   <view class="digg-list-cls">
     <view class="mask-digg" @click="clickEvent" :style="{
