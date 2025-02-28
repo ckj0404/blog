@@ -1,1 +1,0 @@
-import{l as o,m as s,p as n,v as r}from"./index-5o60rWyJ.js";const a={class:"markdown-body"},d={},l="",_=o({__name:"gitPages",setup(p,{expose:t}){return t({frontmatter:{},excerpt:void 0}),(c,e)=>(n(),s("div",a,e[0]||(e[0]=[r("p",null,"111",-1)])))}});export{_ as default,l as excerpt,d as frontmatter};
