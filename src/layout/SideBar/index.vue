@@ -1,33 +1,29 @@
 <template>
   <div class="cls-sidebar">
-    <div class="blog-logo" @click="goToIndex">
+    <div class="blog-logo">
       <img src="@/static/images/logo.png" alt="logo" />
     </div>
     <el-menu
-      default-active="2"
+      default-active="0"
       class="cls-menu"
-      :collapse="sidebarWidth ===300 ? false : true"
-      @open="handleOpen"
-      @close="handleClose"
-    >
-      <el-sub-menu index="1">
-        <template #title>
-          <i class="iconfont icon-dianzan"></i> &nbsp;
-          <span>Navigator Onefdssfasfdsf</span>
-        </template>
-        <el-menu-item-group>
-          <template #title><span>Group One</span></template>
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="Group Two">
-          <el-menu-item index="1-3">item three</el-menu-item>
-        </el-menu-item-group>
-        <el-sub-menu index="1-4">
-          <template #title><span>item four</span></template>
-          <el-menu-item index="1-4-1">item one</el-menu-item>
+      :unique-opened="true"
+      :collapse="sidebarCollapse"
+    > 
+      <template v-for="(item, index) in menuList">
+        <el-sub-menu v-if="item.children" :key="index" :index="index + ''">
+          <template #title>
+            <i :class="['iconfont', item.meta.icon]"></i> &nbsp;
+            <span>{{item.name}}</span>
+          </template>
+          <el-menu-item v-for="(it, id) in item.children" :key="id" :index="index + '-' + id" @click="gotoPage(it.path)">
+            <span>{{it.name}}</span>
+          </el-menu-item>
         </el-sub-menu>
-      </el-sub-menu>
+        <el-menu-item v-if="!item.children" :key="index" :index="index + ''" @click="gotoPage(item.path)">
+          <i :class="['iconfont', item.meta.icon]"></i> &nbsp;
+          <span>{{item.name}}</span>
+        </el-menu-item>
+      </template>
     </el-menu>
   </div>
 </template>
@@ -36,47 +32,30 @@
 export default {
   data() {
     return {
-      crumbs: [{
-        title: '一级',
-        id: '1',
-        child: [{
-          title: '二级1',
-          id: '1-1',
-        }, {
-          title: '二级2',
-          id: '1-2',
-        }]
-      }, {
-        title: '一级1',
-        id: '2',
-        child: [{
-          title: '二级21',
-          id: '2-1',
-        }, {
-          title: '二级22',
-          id: '2-2',
-        }]
-      }]
-    }
-  },
-  props: {
-    sidebarWidth: {
-      type: Number
+      menuList: this.$router.options.routes[0]?.children || [],
+      sidebarCollapse: false
     }
   },
   methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath)
+    updateSidebarWidth() {
+      const viewportWidth = window.innerWidth;
+      // console.log(viewportWidth);
+      if (viewportWidth < 760) {
+        this.sidebarCollapse = true;
+      } else{
+        this.sidebarCollapse = false;
+      }
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath)
-    },
-    goToIndex() {
-      
+    gotoPage(path) {
+      this.$router.push(path)
     }
   },
   mounted() {
-  }
+    window.addEventListener('resize', this.updateSidebarWidth);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateSidebarWidth);
+  },
 }
 </script>
 
@@ -85,6 +64,8 @@ export default {
   display: flex;
   flex-direction: column;
   border-right: 1px solid #ebeef5;
+  max-width: 300px;
+  // transition: width 0.3s ease-in-out; /* 缓动动画 */
   .blog-logo {
     height: 60px;
     display: flex;

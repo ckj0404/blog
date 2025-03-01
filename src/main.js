@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import './style.css'// main.js
 import 'github-markdown-css/github-markdown.css';
 
 import hljs from 'highlight.js/lib/core'
@@ -10,6 +9,7 @@ import App from './App.vue'
 import router from './router'
 // 引入iconfont
 import '@/assets/iconfont/iconfont.css'
+import './style.css'// main.js
 
 
 hljs.registerLanguage('javascript', javascript)

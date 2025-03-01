@@ -1,5 +1,5 @@
 <template>
-  修改成功2
+  <h2>欢迎来到我的博客</h2>
 </template>
 
 <script>

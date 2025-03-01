@@ -1,9 +1,9 @@
 <template>
   <div class="body-layout">
-    <Sidebar :sidebarWidth="sidebarWidth"></Sidebar>
+    <Sidebar></Sidebar>
     <div class="main-layout">
       <Header></Header>
-      <Main :sidebarWidth="sidebarWidth"></Main>
+      <Main></Main>
     </div>
   </div>
 </template>
@@ -20,24 +20,9 @@ export default {
   },
   data() {
     return {
-      sidebarWidth: 300
     }
-  },
-  mounted() {
-    window.addEventListener('resize', this.updateSidebarWidth);
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.updateSidebarWidth);
   },
   methods: {
-    updateSidebarWidth() {
-      const viewportWidth = window.innerWidth;
-      if (viewportWidth < 760) {
-        this.sidebarWidth = 100;
-      } else{
-        this.sidebarWidth = 300;
-      }
-    }
   }
 }
 </script>

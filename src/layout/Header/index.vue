@@ -29,6 +29,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: right;
+  border-bottom: 1px solid #ebeef5;
   .avatar {
     width: 56px;
     height: 56px;

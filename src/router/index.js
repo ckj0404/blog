@@ -7,27 +7,48 @@ const routes = [{
   children: [{
     name: '首页',
     path: 'index',
-    component: () => import('@/views/index.vue')
+    component: () => import('@/views/index.vue'),
+    meta: { icon: 'icon-home'}
   }, {
     name: 'h5',
     path: 'h5',
+    meta: { icon: 'icon-html'},
     component: () => import('@/views/h5/index.md')
+    // children: [{
+    //   name: 'h5',
+    //   path: 'h5',
+    // }]
   }, {
     name: 'css',
     path: 'css',
+    meta: { icon: 'icon-css'},
     component: () => import('@/views/css3/index.md')
+    // children: [{
+    //   name: 'css',
+    //   path: 'css',
+    // }]
   }, {
-    name: 'javascript',
+    name: 'js',
     path: 'javascript',
+    meta: { icon: 'icon-js'},
     component: () => import('@/views/javascript/index.md')
+    // children: [{
+    //   name: 'js',
+    //   path: 'javascript',
+    // }]
   }, {
-    name: 'vue',
-    path: 'vue',
-    component: () => import('@/views/vue/index.vue')
+    name: 'vue相关',
+    path: '',
+    meta: { icon: 'icon-vue'},
+    children: [{
+      name: 'vue',
+      path: 'vue',
+      component: () => import('@/views/vue/index.vue')
+    }]
   }, {
-    name: 'components',
-    path: 'components',
-    redirect: '/components/digg',
+    name: '组件开发',
+    path: '',
+    meta: { icon: 'icon-dianzan'},
     children: [{ 
       name: '点赞',
       path: 'digg',
