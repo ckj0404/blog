@@ -1,8 +1,11 @@
 <template>
-  <!-- <div class="cls-sidebar" :style="{width: sidebarWidth + 'px'}"> -->
+  <div class="cls-sidebar">
+    <div class="blog-logo" @click="goToIndex">
+      <img src="@/static/images/logo.png" alt="logo" />
+    </div>
     <el-menu
       default-active="2"
-      class="el-menu-vertical-demo"
+      class="cls-menu"
       :collapse="sidebarWidth ===300 ? false : true"
       @open="handleOpen"
       @close="handleClose"
@@ -26,7 +29,7 @@
         </el-sub-menu>
       </el-sub-menu>
     </el-menu>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script>
@@ -67,6 +70,9 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath)
+    },
+    goToIndex() {
+      
     }
   },
   mounted() {
@@ -76,17 +82,32 @@ export default {
 
 <style scoped lang="less">
 .cls-sidebar {
-  box-sizing: border-box;
-  overflow-x: scroll;
-  background-color: #fff;
-  height: 100%;
-  max-width: 300px;
-  &::-webkit-scrollbar {
-    display: none;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ebeef5;
+  .blog-logo {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 40px;
+      height: 40px;
+    }
   }
-  .tab-bar {
-    width: auto;
-    border-bottom: none;
+  .cls-menu {
+    border-right: none;
+    overflow-x: scroll;
+    background-color: #fff;
+    max-width: 300px;
+    flex: 1;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .tab-bar {
+      width: auto;
+      border-bottom: none;
+    }
   }
 }
 </style>
