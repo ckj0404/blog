@@ -1,25 +1,32 @@
 <template>
-  <div class="cls-sidebar">
+  <!-- <div class="cls-sidebar" :style="{width: sidebarWidth + 'px'}"> -->
     <el-menu
-      default-active=""
-      mode="horizontal"
-      menu-trigger="click"
-      :unique-opened="true"
-      :ellipsis="false"
-      class="tab-bar"
+      default-active="2"
+      class="el-menu-vertical-demo"
+      :collapse="sidebarWidth ===300 ? false : true"
       @open="handleOpen"
       @close="handleClose"
     >
-      <el-sub-menu v-for="crumb in crumbs" :key="crumb.id" :index="crumb.id">
+      <el-sub-menu index="1">
         <template #title>
-          <span>{{crumb.title}}</span>
+          <i class="iconfont icon-dianzan"></i> &nbsp;
+          <span>Navigator Onefdssfasfdsf</span>
         </template>
-        <el-menu-item v-for="item in crumb.child" :key="item.id" :index="item.id">
-          <template #title>{{item.title}}</template>
-        </el-menu-item>
+        <el-menu-item-group>
+          <template #title><span>Group One</span></template>
+          <el-menu-item index="1-1">item one</el-menu-item>
+          <el-menu-item index="1-2">item two</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group title="Group Two">
+          <el-menu-item index="1-3">item three</el-menu-item>
+        </el-menu-item-group>
+        <el-sub-menu index="1-4">
+          <template #title><span>item four</span></template>
+          <el-menu-item index="1-4-1">item one</el-menu-item>
+        </el-sub-menu>
       </el-sub-menu>
     </el-menu>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -49,6 +56,11 @@ export default {
       }]
     }
   },
+  props: {
+    sidebarWidth: {
+      type: Number
+    }
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath)
@@ -64,11 +76,11 @@ export default {
 
 <style scoped lang="less">
 .cls-sidebar {
-  margin-left: 12px;
-  flex: 1;
-  min-width: 300px;
+  box-sizing: border-box;
   overflow-x: scroll;
   background-color: #fff;
+  height: 100%;
+  max-width: 300px;
   &::-webkit-scrollbar {
     display: none;
   }

@@ -8,6 +8,10 @@ import javascript from 'highlight.js/lib/languages/javascript'
 
 import App from './App.vue'
 import router from './router'
+// 引入iconfont
+import '@/assets/iconfont/iconfont.css'
+
+
 hljs.registerLanguage('javascript', javascript)
 const app = createApp(App)
 

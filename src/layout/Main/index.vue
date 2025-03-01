@@ -4,16 +4,21 @@
   </el-scrollbar>
 </template>
 
-<script setup>
-
-
+<script>
+export default {
+  props: {
+    sidebarWidth: {
+      type: Number
+    }
+  }
+}
 </script>
 
 <style scoped lang="less">
 .cls-main {
   box-sizing: border-box;
   padding: 12px 16px;
-  height: calc(100% - 160px);
+  height: calc(100% - 80px);
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;

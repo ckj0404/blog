@@ -1,7 +1,6 @@
 <template>
   <div class="cls-header">
     <img class="avatar" src="@/static/images/avatar.png"/>
-    <SideBar></SideBar>
   </div>
 </template>
 
@@ -29,6 +28,7 @@ export default {
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: right;
   .avatar {
     width: 56px;
     height: 56px;
