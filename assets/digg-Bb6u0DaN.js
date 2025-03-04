@@ -1,4 +1,4 @@
-import{l as n,m as l,a3 as p,p as t}from"./index-s3fpZtPN.js";const e={class:"markdown-body"},i={},j="",u=n({__name:"digg",setup(c,{expose:a}){return a({frontmatter:{},excerpt:void 0}),(r,s)=>(t(),l("div",e,s[0]||(s[0]=[p(`<h2>点赞组件</h2><h2>digg-list</h2><pre><code class="language-vue">&lt;<span class="hljs-name">template</span>&gt;
+import{l as n,m as l,a3 as p,p as t}from"./index-Jbo7bxIf.js";const e={class:"markdown-body"},i={},j="",u=n({__name:"digg",setup(c,{expose:a}){return a({frontmatter:{},excerpt:void 0}),(r,s)=>(t(),l("div",e,s[0]||(s[0]=[p(`<h2>点赞组件</h2><h2>digg-list</h2><pre><code class="language-vue">&lt;<span class="hljs-name">template</span>&gt;
   &lt;<span class="hljs-name">view</span> class=<span class="hljs-string">&quot;digg-list-cls&quot;</span>&gt;
     &lt;<span class="hljs-name">view</span> class=<span class="hljs-string">&quot;mask-digg&quot;</span> @click=<span class="hljs-string">&quot;clickEvent&quot;</span> :<span class="hljs-name">style</span>=<span class="hljs-string">&quot;{
       top: systemInfo.statusBarHeight + &#39;px&#39;,
