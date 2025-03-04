@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       menuList: this.$router.options.routes[0]?.children || [],
+      isMobile: $Fw.isMobile(),
       sidebarCollapse: false
     }
   },
@@ -51,10 +52,18 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('resize', this.updateSidebarWidth);
+    if(this.isMobile) {
+
+    } else {
+      window.addEventListener('resize', this.updateSidebarWidth);
+    }
   },
   beforeUnmount() {
-    window.removeEventListener('resize', this.updateSidebarWidth);
+    if(this.isMobile) {
+      this.sidebarCollapse = true;
+    } else {
+      window.removeEventListener('resize', this.updateSidebarWidth);
+    }
   },
 }
 </script>
