@@ -34,7 +34,7 @@ export default {
     return {
       menuList: this.$router.options.routes[0]?.children || [],
       isMobile: $Fw.isMobile(),
-      sidebarCollapse: false
+      sidebarCollapse: true
     }
   },
   methods: {
@@ -52,15 +52,16 @@ export default {
     }
   },
   mounted() {
+    console.log(this.isMobile)
     if(this.isMobile) {
-
+      this.sidebarCollapse = true;
     } else {
       window.addEventListener('resize', this.updateSidebarWidth);
     }
   },
   beforeUnmount() {
     if(this.isMobile) {
-      this.sidebarCollapse = true;
+      this.sidebarCollapse = false;
     } else {
       window.removeEventListener('resize', this.updateSidebarWidth);
     }
