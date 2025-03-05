@@ -33,10 +33,14 @@ export default defineConfig({
       }
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver()
+      ],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver()
+      ],
     })
   ],
   resolve: {

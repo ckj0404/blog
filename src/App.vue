@@ -1,6 +1,16 @@
 <template>
-  <router-view></router-view>
+  <layout />
 </template>
+
+<script>
+import layout from '@/layout'
+export default {
+  name: 'App',
+  components: {
+    layout
+  }
+}
+</script>
 
 
 <style lang="less">

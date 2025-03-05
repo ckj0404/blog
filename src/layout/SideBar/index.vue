@@ -4,7 +4,7 @@
       <img src="@/static/images/logo.png" alt="logo" />
     </div>
     <el-menu
-      default-active="0"
+      :default-active="activeIndex"
       class="cls-menu"
       :unique-opened="true"
       :collapse="sidebarCollapse"
@@ -28,44 +28,46 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      menuList: this.$router.options.routes[0]?.children || [],
-      isMobile: $Fw.isMobile(),
-      sidebarCollapse: true
-    }
-  },
-  methods: {
-    updateSidebarWidth() {
-      const viewportWidth = window.innerWidth;
-      // console.log(viewportWidth);
-      if (viewportWidth < 760) {
-        this.sidebarCollapse = true;
-      } else{
-        this.sidebarCollapse = false;
+<script setup>
+import { useRouter } from 'vue-router'
+import { mapState } from 'pinia'
+import { useGlobal } from '@/stores/global'
+import { storeToRefs } from 'pinia'
+import { ref, watch } from 'vue'
+
+// 路由
+const router = useRouter();
+// store
+const globalStore = useGlobal();
+
+const props = defineProps({
+  sidebarCollapse: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const menuList = ref(router.options.routes || [])
+
+const activeIndex = ref('0')
+const mapRouter = ref(new Map())
+watch(() => globalStore.currentPath, (newVal) => {
+  if(mapRouter.value.size === 0) {
+    router.options.routes.forEach((item, index) => {
+      if(!item.children) {
+        mapRouter.value.set(item.path, index + '')
+      } else {
+        item.children.forEach((child, idx) => {
+          mapRouter.value.set(item.path + child.path, index + '-' + idx)
+        })
       }
-    },
-    gotoPage(path) {
-      this.$router.push(path)
-    }
-  },
-  mounted() {
-    console.log(this.isMobile)
-    if(this.isMobile) {
-      this.sidebarCollapse = true;
-    } else {
-      window.addEventListener('resize', this.updateSidebarWidth);
-    }
-  },
-  beforeUnmount() {
-    if(this.isMobile) {
-      this.sidebarCollapse = false;
-    } else {
-      window.removeEventListener('resize', this.updateSidebarWidth);
-    }
-  },
+    })
+  }
+  activeIndex.value = mapRouter.value.get(newVal)
+})
+
+function gotoPage(path) {
+  router.push(path)
 }
 </script>
 

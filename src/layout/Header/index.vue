@@ -1,24 +1,19 @@
 <template>
   <div class="cls-header">
+    <el-icon :size="28" @click="toggleSideBar"><Operation /></el-icon>
     <img class="avatar" src="@/static/images/avatar.png"/>
   </div>
 </template>
 
-<script>
+<script setup>
 import SideBar from '../SideBar'
-export default {
-  data() {
-    return {
-    }
-  },
-  components: {
-    SideBar
-  },
-  methods: {
 
-  }
+const props = defineProps(['modelValue']);
+const emit = defineEmits(['update:modelValue']);
+
+function toggleSideBar() {
+  emit('update:modelValue', !props.modelValue);
 }
-
 </script>
 
 <style scoped lang="less">
@@ -28,7 +23,7 @@ export default {
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: space-between;
   border-bottom: 1px solid #ebeef5;
   .avatar {
     width: 56px;

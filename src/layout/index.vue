@@ -1,30 +1,47 @@
 <template>
   <div class="body-layout">
-    <Sidebar></Sidebar>
+    <Sidebar :sidebarCollapse="sidebarCollapse"></Sidebar>
     <div class="main-layout">
-      <Header></Header>
+      <Header v-model="sidebarCollapse"></Header>
       <Main></Main>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import Header from './Header'
 import Main from './Main'
 import Sidebar from './Sidebar'
-export default {
-  components: {
-    Header,
-    Main,
-    Sidebar
-  },
-  data() {
-    return {
-    }
-  },
-  methods: {
+
+// 折叠菜单逻辑
+const sidebarCollapse = ref(false)
+const isMobile = ref($Fw.isMobile())
+function updateSidebarCollapse() {
+  const viewportWidth = window.innerWidth;
+  if (viewportWidth < 760) {
+    sidebarCollapse.value = true;
+  } else{
+    sidebarCollapse.value = false;
   }
 }
+onMounted(() => {
+  if(isMobile.value) {
+    sidebarCollapse.value = true;
+  } else {
+    updateSidebarCollapse();
+    window.addEventListener('resize', updateSidebarCollapse);
+  }
+})
+onUnmounted(() => {
+  if(isMobile.value) {
+    sidebarCollapse.value = false;
+  } else {
+    window.removeEventListener('resize', updateSidebarCollapse);
+  }
+})
+
+
 </script>
 
 <style scoped lang="less">

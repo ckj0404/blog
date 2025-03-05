@@ -4,14 +4,7 @@
   </el-scrollbar>
 </template>
 
-<script>
-export default {
-  props: {
-    sidebarWidth: {
-      type: Number
-    }
-  }
-}
+<script setup>
 </script>
 
 <style scoped lang="less">
