@@ -2,14 +2,8 @@
   <layout />
 </template>
 
-<script>
+<script setup>
 import layout from '@/layout'
-export default {
-  name: 'App',
-  components: {
-    layout
-  }
-}
 </script>
 
 

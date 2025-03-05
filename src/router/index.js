@@ -61,10 +61,8 @@ router.beforeEach((to, from, next) => {
 
   const global = useGlobal()
   global.setCurrentPath(to.path)
-  if (to.path === '/') {
+  if (to.path === '/' || !routeExists) {
     next('/index'); // 如果路由是根路径，跳转到首页
-  } else if (!routeExists) {
-    next('/index'); // 如果路由不存在，跳转到首页
   } else {
     next(); // 否则继续导航
   }
