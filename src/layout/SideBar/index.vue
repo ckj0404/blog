@@ -1,5 +1,5 @@
 <template>
-  <div class="cls-sidebar">
+  <div class="cls-sidebar" :style="{width: sidebarCollapse ? '64px' : '200px'}">
     <div class="blog-logo">
       <img src="@/static/images/logo.png" alt="logo" />
     </div>
@@ -76,8 +76,7 @@ function gotoPage(path) {
   display: flex;
   flex-direction: column;
   border-right: 1px solid #ebeef5;
-  max-width: 300px;
-  // transition: width 0.3s ease-in-out; /* 缓动动画 */
+  transition: width 0.3s linear; /* 缓动动画 */
   .blog-logo {
     height: 60px;
     display: flex;
@@ -92,7 +91,6 @@ function gotoPage(path) {
     border-right: none;
     overflow-x: scroll;
     background-color: #fff;
-    max-width: 300px;
     flex: 1;
     &::-webkit-scrollbar {
       display: none;

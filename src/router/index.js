@@ -38,6 +38,15 @@ const routes = [{
     path: '/digg',
     component: () => import('@/views/components/digg.md')
   }]
+}, {
+  name: '实践',
+  path: '',
+  meta: { icon: 'icon-practice'},
+  children: [{ 
+    name: 'git pages 搭建',
+    path: '/gitPages',
+    component: () => import('@/views/practice/gitPages.md')
+  }]
 }]
 
 const router = createRouter({
