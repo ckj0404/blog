@@ -1,0 +1,1 @@
+import{d as t,c as o,o as n}from"./index-C9Znp1uj.js";const r={class:"markdown-body"},_={},m="",d=t({__name:"gitPages",setup(s,{expose:e}){return e({frontmatter:{},excerpt:void 0}),(c,a)=>(n(),o("div",r))}});export{d as default,m as excerpt,_ as frontmatter};

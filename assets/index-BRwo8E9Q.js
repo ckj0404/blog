@@ -1,1 +1,0 @@
-import{d as o,c as n,b as s,o as r}from"./index-mKOg6iB0.js";const a={class:"markdown-body"},m={},_="",i=o({__name:"index",setup(c,{expose:t}){return t({frontmatter:{},excerpt:void 0}),(d,e)=>(r(),n("div",a,e[0]||(e[0]=[s("h1",null,"js",-1)])))}});export{i as default,_ as excerpt,m as frontmatter};
