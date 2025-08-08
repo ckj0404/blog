@@ -9,17 +9,17 @@ const routes = [{
   name: 'h5',
   path: '/h5',
   meta: { icon: 'icon-html'},
-  component: () => import('@/views/h5/index.md')
+  component: () => import('@/views/h5/index.vue')
 }, {
   name: 'css',
   path: '/css',
   meta: { icon: 'icon-css'},
-  component: () => import('@/views/css3/index.md')
+  component: () => import('@/views/css3/index.vue')
 }, {
   name: 'js',
   path: '/javascript',
   meta: { icon: 'icon-js'},
-  component: () => import('@/views/javascript/index.md')
+  component: () => import('@/views/javascript/index.vue')
 }, {
   name: 'vue相关',
   path: '',
@@ -36,7 +36,7 @@ const routes = [{
   children: [{ 
     name: '点赞',
     path: '/digg',
-    component: () => import('@/views/components/digg.md')
+    component: () => import('@/views/components/index.vue')
   }]
 }, {
   name: '实践',
@@ -45,8 +45,13 @@ const routes = [{
   children: [{ 
     name: 'git pages 搭建',
     path: '/gitPages',
-    component: () => import('@/views/practice/gitPages.md')
+    component: () => import('@/views/practice/index.vue')
   }]
+}, {
+  name: '面试题',
+  path: '/interviewQuestion',
+  meta: { icon: 'icon-practice'},
+  component: () => import('@/views/interviewQuestion/index.vue')
 }]
 
 const router = createRouter({

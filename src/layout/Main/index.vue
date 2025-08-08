@@ -1,7 +1,7 @@
 <template>
-  <el-scrollbar class="cls-main">
+  <div class="cls-main">
     <router-view></router-view>
-  </el-scrollbar>
+  </div>
 </template>
 
 <script setup>
@@ -10,8 +10,8 @@
 <style scoped lang="less">
 .cls-main {
   box-sizing: border-box;
-  padding: 12px 16px;
-  height: calc(100% - 80px);
+  padding: 0;
+  height: calc(100vh - 80px);
   overflow-y: scroll;
   &::-webkit-scrollbar {
     display: none;

@@ -2,17 +2,14 @@ import { createApp } from 'vue'
 import App from './App.vue'
 const app = createApp(App)
 
-// 美化markdown
-import 'github-markdown-css/github-markdown.css';
-import hljs from 'highlight.js/lib/core'
-import javascript from 'highlight.js/lib/languages/javascript'
-import 'highlight.js/styles/github.css'
-hljs.registerLanguage('javascript', javascript)
 
 // 引入iconfont
 import '@/assets/iconfont/iconfont.css'
-// 引入公共样式
-import './style.css'
+// 引入样式
+import './styles/index.less'
+// import 'github-markdown-css/github-markdown.css'
+import 'prismjs/themes/prism.css'
+
 
 //  Pinia 
 import { createPinia } from 'pinia'; // 引入 Pinia

@@ -1,8 +1,8 @@
-## 点赞组件
+# 点赞组件
 
 ## digg-list
 
-```vue
+```html
 <template>
   <view class="digg-list-cls">
     <view class="mask-digg" @click="clickEvent" :style="{
@@ -249,7 +249,7 @@ export default {
 
 ## digg-item
 
-```vue
+```html
 <template>
   <image v-show="modelValue" :src="formatImgUrl('/xyzx/static/live/digg-' + type % 6 + '.png')"></image>
 </template>

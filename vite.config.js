@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Markdown from 'vite-plugin-md'
-import hljs from 'highlight.js';
-import path from 'path'
-import highLightVue from './src/utils/highLightVue';
-hljs.registerLanguage('vue-with-miniprogram', highLightVue);
+import markdownItAnchor from 'markdown-it-anchor'
+import markdownItPrism from 'markdown-it-prism'
 
 export default defineConfig({
   base: '/blog/',
@@ -17,20 +16,16 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     Markdown({
-      markdownItOptions: {
-        highlight: (str, lang) => {
-          if (lang === 'vue') {
-            // 使用自定义语言高亮 Vue 代码块
-            return hljs.highlight(str, { language: 'vue-with-miniprogram' }).value;
-          }
-          if (lang && hljs.getLanguage(lang)) {
-            try {
-              return hljs.highlight(str, { language: lang }).value;
-            } catch (__) {}
-          }
-          return ''; // 使用默认的高亮处理
-        },
-      }
+      markdownItSetup(md) {
+        md.use(markdownItPrism)
+        md.use(markdownItAnchor, {
+          slugify: s =>
+            s
+              .trim()
+              .toLowerCase()
+              .replace(/\s+/g, '-'),
+        })
+      },
     }),
     AutoImport({
       resolvers: [
